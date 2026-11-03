@@ -341,7 +341,7 @@ body {
 
 .bars { margin: 16px 0 8px; }
 
-.bar-row { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: center; margin-bottom: 11px; }
+.bar-row { display: grid; grid-template-columns: 136px 1fr; gap: 12px; align-items: center; margin-bottom: 11px; }
 .bar-row .who { font-weight: 800; font-size: 14.5px; }
 .bar-track { background: var(--paper-deep); border: 1.5px solid var(--rule); border-radius: 999px; height: 26px; position: relative; overflow: hidden; }
 

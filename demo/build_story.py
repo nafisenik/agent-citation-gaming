@@ -38,21 +38,29 @@ STRATEGY_OF = {
 
 STRATEGY_COPY = {
     "overlap": {
-        "label": "Stuff the keywords in",
-        "author_says": "I'll jam every term they searched for into my title.",
+        "label": "Title only: add their keywords",
+        "short": "title only",
+        "author_says": (
+            "I'll leave the abstract alone and pack the terms they searched for "
+            "into my title."
+        ),
         "text_published": True,
     },
     "rewrite": {
-        "label": "Rewrite to match the queries",
+        "label": "Title and abstract: say the same thing in their words",
+        "short": "title + abstract",
         "author_says": (
-            "I'll rewrite my title and abstract in their words - same findings, "
-            "same claims, every one still backed by a quote from my real abstract."
+            "I'll rewrite both in their wording - same findings, same claims, every "
+            "one still backed by a quote from my real abstract."
         ),
         "text_published": False,
     },
+    # Not an author move: this injects a paper that does not exist, so it is reported
+    # alongside the results as a reference point rather than offered as a choice.
     "fabricated": {
-        "label": "Invent a paper that fits perfectly",
-        "author_says": "I'll write the paper they're obviously looking for.",
+        "label": "A paper invented to fit the queries",
+        "short": "invented paper",
+        "author_says": "A record written to match the queries, with no study behind it.",
         "text_published": False,
     },
 }

@@ -278,7 +278,10 @@ export const scenes = [
   <div class="how">${escape(how)}</div>
 </button>`;
       };
-      const options = ['overlap', 'rewrite', 'fabricated']
+      // Only the two edits are offered as moves. Fabricating a paper is not something an
+      // author can do to their own paper, so it belongs with the results as a reference
+      // point, not here among the choices.
+      const edits = ['overlap', 'rewrite']
         .map((name) => {
           const strategy = strategyOf(data, name);
           return strategy ? card(name, strategy.label, strategy.author_says) : '';
@@ -288,23 +291,25 @@ export const scenes = [
 <div class="scene">
   <h2>Your move</h2>
   <p>
-    You can rewrite your title and abstract. You cannot change what the paper found, run new
-    experiments, or touch anyone else&rsquo;s entry. Four things an author might do:
+    The research is finished and the results are not changing. All you can edit is how the
+    paper is described. So either you leave it alone, or you edit it &mdash; and there are
+    two ways to edit.
   </p>
   <div class="choices">
     ${card(
       'baseline',
-      'Change nothing',
-      'I will leave my paper exactly as it was published.',
+      'Leave it as it is',
+      'The paper stays exactly as published.',
       'control'
     )}
-    ${options}
   </div>
+  <p class="small" style="margin:14px 0 6px">Or edit the wording, two ways:</p>
+  <div class="choices">${edits}</div>
   <p class="small">
-    Pick one of the three edits and the next screen replays what happened
-    when it was run against <code>${escape(target.paper_id)}</code> &mdash; three independent
-    executions, same request, same index. Pick <em>change nothing</em> and the next screen
-    has nothing to replay, because that run was never done.
+    Either edit replays what happened when it was run against
+    <code>${escape(target.paper_id)}</code> &mdash; three independent executions, same
+    request, same index. Leaving it alone has nothing to replay, because that run was
+    never done.
   </p>
 </div>`;
     },
@@ -498,7 +503,7 @@ export const scenes = [
             const value = strategy[field] || 0;
             return `
 <div class="bar-row">
-  <div class="who">${escape(strategy.strategy)}</div>
+  <div class="who">${escape(strategy.short || strategy.strategy)}</div>
   <div class="bar-track">
     <div class="bar-fill" data-width="${Math.round(value * 100)}" style="background:${colour[strategy.strategy] || '#9a9287'}"></div>
     <div class="lab">${pct(value)}</div>
@@ -511,8 +516,13 @@ export const scenes = [
   <h2>No strategy wins both goals</h2>
   <p>
     An author wants two things: to be found, and then to be used. The first two measures
-    below are about being found, the third is about being used. A strategy can win one goal
+    below are about being found, the third is about being used. An edit can win one goal
     and lose the other.
+  </p>
+  <p class="small">
+    The third row is not an author move. <b>Invented paper</b> is a record written to fit
+    the queries with no study behind it, included as a reference point: it marks what
+    wording alone can reach when there is nothing underneath it.
   </p>
   <p><strong>1. Retrieved</strong> &mdash; did the paper come back in the results at all?</p>
   <div class="bars">${bars('retrieval_rate')}</div>
@@ -521,16 +531,16 @@ export const scenes = [
   <p><strong>3. Cited</strong> &mdash; did the agent use it in the review?</p>
   <div class="bars">${bars('citation_rate')}</div>
   <p>
-    Keyword stuffing and the fabricated paper win the first two stages and lose the third.
-    The faithful rewrite is retrieved and ranked less often than either, and cited more
-    than both together.
+    The two keyword-matched documents win the first two measures and lose the third. The
+    rewrite that keeps every claim tied to the real abstract is retrieved and ranked less
+    often than either, and cited more than both together.
   </p>
   <div class="callout">
     <h3>Why measuring one stage is not enough</h3>
     <p style="margin:0">
-      Judged on retrieval or rank, keyword stuffing looks like the strongest attack and the
-      faithful rewrite the weakest. At the citation stage that order reverses. A system
-      tuned only on its retriever would rank these three exactly backwards.
+      Judged on retrieval or rank, stuffing the title looks like the stronger edit and the
+      rewrite the weaker one. At the citation stage that order reverses. A system tuned
+      only on its retriever would rank these exactly backwards.
     </p>
   </div>
 </div>`;
