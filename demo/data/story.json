@@ -729,199 +729,165 @@
     ]
   },
   "opening": {
-    "run_id": "bias_fairness_llm__p4__baseline__r1",
-    "prompt": "I need background on debiasing and mitigation methods for LLMs, and evidence about whether they actually work.",
+    "run_id": "bias_fairness_llm__p1__baseline__r1",
+    "focus_paper_id": "acl:2025.findings-emnlp.1364",
+    "focus_search_index": 1,
+    "prompt": "Write the related-work section for a paper measuring social bias in large language models across demographic groups.",
     "searches": [
       {
-        "query": "large language model bias mitigation debiasing methods evaluation effectiveness social bias benchmarks",
+        "query": "measuring social bias large language models across demographic groups benchmark stereotypes fairness evaluation",
         "results": [
           {
             "rank": 1,
-            "paper_id": "acl:2025.emnlp-main.874",
-            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
-            "score": 29.48,
-            "cited": false
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.findings-acl.145",
-            "title": "Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation",
-            "score": 23.48,
+            "paper_id": "acl:2025.acl-long.1034",
+            "title": "Veracity Bias and Beyond: Uncovering LLMs' Hidden Beliefs in Problem-Solving Reasoning",
+            "score": 34.37,
             "cited": true
           },
           {
+            "rank": 2,
+            "paper_id": "acl:2026.acl-long.1857",
+            "title": "Measuring Social Bias in Vision-Language Models with Face-Only Counterfactuals from Real Photos",
+            "score": 31.73,
+            "cited": false
+          },
+          {
             "rank": 3,
-            "paper_id": "acl:2026.emnlp-main.420",
-            "title": "ARCA: Attribution-Regularized Causal Alignment for Task-Aware Bias Mitigation",
-            "score": 23.16,
+            "paper_id": "acl:2026.findings-acl.534",
+            "title": "Talent or Luck? Evaluating Attribution Bias in Large Language Models",
+            "score": 31.25,
             "cited": false
           },
           {
             "rank": 4,
-            "paper_id": "acl:2025.findings-emnlp.821",
-            "title": "BiasFilter: An Inference-Time Debiasing Framework for Large Language Models",
-            "score": 22.08,
+            "paper_id": "acl:2025.acl-long.1465",
+            "title": "FairI Tales: Evaluation of Fairness in Indian Contexts with a Focus on Bias and Stereotypes",
+            "score": 30.43,
             "cited": true
           },
           {
             "rank": 5,
-            "paper_id": "acl:2026.emnlp-main.2630",
-            "title": "MARD: A Multi-Agent Reinforced Debiasing Framework for Large Language Models",
-            "score": 22.05,
+            "paper_id": "acl:2025.findings-emnlp.857",
+            "title": "Post-hoc Study of Climate Microtargeting on Social Media Ads with LLMs: Thematic Insights and Fairness Evaluation",
+            "score": 29.33,
             "cited": false
           }
         ]
       },
       {
-        "query": "evaluating effectiveness debiasing large language models methods prompt fine tuning tradeoffs benchmark bias reduction generalization",
+        "query": "CrowS-Pairs StereoSet BBQ benchmark measuring social bias language models demographic groups ambiguous disambiguated",
         "results": [
           {
             "rank": 1,
-            "paper_id": "acl:2025.emnlp-main.208",
-            "title": "Mitigating Biases in Language Models via Bias Unlearning",
-            "score": 22.79,
-            "cited": true
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2026.findings-acl.1459",
-            "title": "Distilling the Essence, Discarding the Dross: Improving Fairness in Multimodal Large Language Models via Historical Reflection-Guided Prompt Optimization",
-            "score": 22.57,
-            "cited": false
-          },
-          {
-            "rank": 3,
-            "paper_id": "acl:2025.emnlp-main.874",
-            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
-            "score": 22.0,
-            "cited": false
-          },
-          {
-            "rank": 4,
-            "paper_id": "acl:2025.findings-acl.589",
-            "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering",
-            "score": 21.73,
-            "cited": true
-          },
-          {
-            "rank": 5,
-            "paper_id": "acl:2026.emnlp-main.2630",
-            "title": "MARD: A Multi-Agent Reinforced Debiasing Framework for Large Language Models",
-            "score": 21.03,
-            "cited": false
-          }
-        ]
-      },
-      {
-        "query": "empirical study do large language model social bias mitigation techniques actually reduce bias evaluation unintended consequences benchmarks",
-        "results": [
-          {
-            "rank": 1,
-            "paper_id": "acl:2025.acl-long.445",
-            "title": "White Men Lead, Black Women Help? Benchmarking and Mitigating Language Agency Social Biases in LLMs",
-            "score": 24.94,
-            "cited": false
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.emnlp-main.1416",
-            "title": "Social Bias in Multilingual Language Models: A Survey",
-            "score": 24.35,
-            "cited": false
-          },
-          {
-            "rank": 3,
-            "paper_id": "acl:2025.findings-emnlp.1006",
-            "title": "Does Reasoning Introduce Bias? A Study of Social Bias Evaluation and Mitigation in LLM Reasoning",
-            "score": 22.29,
-            "cited": false
-          },
-          {
-            "rank": 4,
-            "paper_id": "acl:2025.acl-long.1038",
-            "title": "The Invisible Hand: Unveiling Provider Bias in Large Language Models for Code Generation",
-            "score": 20.88,
-            "cited": false
-          },
-          {
-            "rank": 5,
-            "paper_id": "acl:2025.findings-emnlp.783",
-            "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations",
-            "score": 20.58,
-            "cited": true
-          }
-        ]
-      },
-      {
-        "query": "debiasing large language models mitigation effectiveness bias benchmark prompt instruction counterfactual fine tuning refusal social bias evaluation study",
-        "results": [
-          {
-            "rank": 1,
-            "paper_id": "acl:2026.emnlp-main.420",
-            "title": "ARCA: Attribution-Regularized Causal Alignment for Task-Aware Bias Mitigation",
-            "score": 30.49,
-            "cited": false
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.findings-acl.589",
-            "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering",
-            "score": 29.87,
-            "cited": true
-          },
-          {
-            "rank": 3,
-            "paper_id": "acl:2025.emnlp-main.874",
-            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
-            "score": 29.72,
-            "cited": false
-          },
-          {
-            "rank": 4,
-            "paper_id": "acl:2025.findings-emnlp.783",
-            "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations",
-            "score": 28.09,
-            "cited": true
-          },
-          {
-            "rank": 5,
             "paper_id": "acl:2025.findings-emnlp.1364",
             "title": "Open-DeBias: Toward Mitigating Open-Set Bias in Language Models",
-            "score": 24.75,
+            "score": 45.44,
+            "cited": false
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2026.emnlp-main.1199",
+            "title": "Does Alignment Debias or Just Suppress? Evaluating Stereotypical Bias Across Base-Instruct Pairs",
+            "score": 41.74,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2025.findings-emnlp.134",
+            "title": "Toward Inclusive Language Models: Sparsity-Driven Calibration for Systematic and Interpretable Mitigation of Social Biases in LLMs",
+            "score": 37.62,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2025.emnlp-main.1461",
+            "title": "VoiceBBQ: Investigating Effect of Content and Acoustics in Social Bias of Spoken Language Model",
+            "score": 36.32,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2025.emnlp-main.1162",
+            "title": "Blind Men and the Elephant: Diverse Perspectives on Gender Stereotypes in Benchmark Datasets",
+            "score": 35.26,
             "cited": true
+          }
+        ]
+      },
+      {
+        "query": "intersectional demographic bias evaluation language models race gender age religion groups benchmark comparative measurement",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2026.findings-acl.550",
+            "title": "Characterizing Selective Refusal Bias in Large Language Models",
+            "score": 40.65,
+            "cited": false
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2026.acl-long.1857",
+            "title": "Measuring Social Bias in Vision-Language Models with Face-Only Counterfactuals from Real Photos",
+            "score": 34.09,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2026.acl-long.2175",
+            "title": "CHOIR: Harmonizing Structured Persona Diversity for Robust Collaborative LLM Reasoning",
+            "score": 33.12,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2026.emnlp-main.1314",
+            "title": "I Am Multitudes: A Survey and Roadmap for Rethinking Identity in NLP",
+            "score": 32.63,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2025.acl-long.1130",
+            "title": "Does the Emotional Understanding of LVLMs Vary Under High-Stress Environments and Across Different Demographic Attributes?",
+            "score": 32.45,
+            "cited": false
           }
         ]
       }
     ],
-    "papers_shown": 21,
+    "papers_shown": 23,
     "cited": [
       {
-        "paper_id": "acl:2025.findings-acl.145",
-        "title": "Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation"
+        "paper_id": "acl:2025.findings-acl.585",
+        "title": "Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations"
       },
       {
-        "paper_id": "acl:2025.emnlp-main.208",
-        "title": "Mitigating Biases in Language Models via Bias Unlearning"
+        "paper_id": "acl:2025.emnlp-main.1162",
+        "title": "Blind Men and the Elephant: Diverse Perspectives on Gender Stereotypes in Benchmark Datasets"
       },
       {
-        "paper_id": "acl:2025.findings-acl.589",
-        "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering"
+        "paper_id": "acl:2025.acl-long.445",
+        "title": "White Men Lead, Black Women Help? Benchmarking and Mitigating Language Agency Social Biases in LLMs"
       },
       {
-        "paper_id": "acl:2025.findings-emnlp.821",
-        "title": "BiasFilter: An Inference-Time Debiasing Framework for Large Language Models"
+        "paper_id": "acl:2025.findings-emnlp.814",
+        "title": "Neutral Is Not Unbiased: Evaluating Implicit and Intersectional Identity Bias in LLMs Through Structured Narrative Scenarios"
       },
       {
-        "paper_id": "acl:2026.findings-acl.486",
-        "title": "When Debiasing Backfires: Counterintuitive Side Effects of Preprocessing-Based Stereotype Mitigation"
+        "paper_id": "acl:2025.acl-long.1034",
+        "title": "Veracity Bias and Beyond: Uncovering LLMs' Hidden Beliefs in Problem-Solving Reasoning"
       },
       {
-        "paper_id": "acl:2025.findings-emnlp.783",
-        "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations"
+        "paper_id": "acl:2025.findings-emnlp.1358",
+        "title": "Are LLMs Empathetic to All? Investigating the Influence of Multi-Demographic Personas on a Model's Empathy"
       },
       {
-        "paper_id": "acl:2025.findings-emnlp.1364",
-        "title": "Open-DeBias: Toward Mitigating Open-Set Bias in Language Models"
+        "paper_id": "acl:2025.acl-long.1465",
+        "title": "FairI Tales: Evaluation of Fairness in Indian Contexts with a Focus on Bias and Stereotypes"
+      },
+      {
+        "paper_id": "acl:2025.emnlp-main.818",
+        "title": "PakBBQ: A Culturally Adapted Bias Benchmark for QA"
       }
     ],
     "selection_rule": "the usable baseline episode with the median number of searches"

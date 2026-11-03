@@ -134,7 +134,8 @@ export const scenes = [
     id: 'results',
     autoplayMs: 4000,
     render(data) {
-      const search = data.opening.searches[0];
+      // Show the list the reader's paper is actually in, so the next scene can point at it.
+      const search = data.opening.searches[data.opening.focus_search_index ?? 0];
       const rows = search.results
         .map(
           (hit, index) => `
@@ -153,10 +154,20 @@ export const scenes = [
   <h2>The index answers</h2>
   <p class="small">Top 5 returned for &ldquo;${escape(search.query)}&rdquo;</p>
   <div class="ranked">${rows}</div>
-  <p>
-    The agent reads many more papers than it cites. Being retrieved and being cited are
-    different outcomes, and the distance between them is what the rest of this measures.
-  </p>
+  ${
+    // Only say this when the list in front of the reader actually shows it.
+    search.results.length &&
+    !search.results[0].cited &&
+    search.results.some((hit) => hit.cited)
+      ? `<p>
+           The top result was not cited and one further down was. Rank and citation are
+           decided separately, and that difference is what the rest of this measures.
+         </p>`
+      : `<p>
+           The agent reads many more papers than it cites. Rank and citation are decided
+           separately, and that difference is what the rest of this measures.
+         </p>`
+  }
 </div>`;
     },
   },

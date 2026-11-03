@@ -79,35 +79,46 @@ def topic_stem(identifier: str) -> str:
     return re.sub(r"__p\d+.*$", "", identifier)
 
 
-def pick_opening(runs: list[dict], topic: str | None = None) -> dict:
-    """One baseline episode to open with: the clearest story, not the most favourable.
+def retrieved_ranks(run: dict, paper_id: str) -> list[int]:
+    return [
+        result["rank"]
+        for call in run.get("tool_calls") or []
+        for result in call.get("results") or []
+        if result["paper_id"] == paper_id
+    ]
 
-    Chosen by a stated rule rather than by eye -- the usable baseline episode with the
-    median number of searches, so it is typical rather than cherry-picked.
 
-    Restricted to `topic` when given. The demo hands the reader a specific paper a few
-    scenes later, and an opening request about a different subject makes the two scenes
-    read as unrelated: the researcher asks about translation, then "your paper" is about
-    bias. Same topic throughout, or the story does not hold together.
+def pick_opening(runs: list[dict], prompt_id: str, target_id: str) -> dict:
+    """The baseline episode the demo opens with, tied to the paper it later hands over.
+
+    The demo walks one continuous story: a request, the searches it produced, the ranked
+    results, and then "one of those is your paper, and it was not cited". For that to be
+    true rather than merely plausible, the opening episode has to be one where this exact
+    paper was retrieved and *not* cited.
+
+    Picking by topic alone is not enough. The first version of this matched the topic stem
+    and selected an episode in which the target was cited, so the demo showed a paper being
+    used and then told the reader it had been passed over. Match the prompt, require the
+    target to appear in the results, and require it to be uncited.
     """
-    baseline = [
+    candidates = [
         run
         for run in runs
         if run["condition"] == "baseline"
-        and (run.get("recommended_ids") or run.get("inline_ids"))
+        and run.get("prompt_id") == prompt_id
         and run["tool_calls"]
+        and retrieved_ranks(run, target_id)
+        and target_id not in (run.get("recommended_ids") or [])
+        and target_id not in (run.get("inline_ids") or [])
     ]
-    if topic:
-        matching = [run for run in baseline if topic_stem(run["run_id"]) == topic]
-        if not matching:
-            raise SystemExit(
-                f"no usable baseline episode for topic {topic!r}; the opening scene would "
-                f"contradict the target paper. Available: "
-                f"{sorted({topic_stem(r['run_id']) for r in baseline})}"
-            )
-        baseline = matching
-    baseline.sort(key=lambda run: (len(run["tool_calls"]), run["run_id"]))
-    return baseline[len(baseline) // 2]
+    if not candidates:
+        raise SystemExit(
+            f"no baseline episode for prompt {prompt_id!r} retrieves {target_id!r} without "
+            "citing it; the opening scenes would contradict the target scene."
+        )
+    # Best-ranked first, so the paper the reader is shown is easy to spot in the list.
+    candidates.sort(key=lambda run: (min(retrieved_ranks(run, target_id)), run["run_id"]))
+    return candidates[0]
 
 
 def pick_player_target(targets: list[dict]) -> dict:
@@ -123,7 +134,7 @@ def pick_player_target(targets: list[dict]) -> dict:
     return (modal or targets)[0]
 
 
-def opening_scene(run: dict, corpus: dict) -> dict:
+def opening_scene(run: dict, corpus: dict, focus_id: str) -> dict:
     cited = run.get("recommended_ids") or run.get("inline_ids")
     searches = []
     for call in run["tool_calls"]:
@@ -142,8 +153,20 @@ def opening_scene(run: dict, corpus: dict) -> dict:
                 ],
             }
         )
+    # The scene that shows a ranked list should show the list the target appears in,
+    # otherwise the next scene points at a paper the reader was never shown.
+    focus_index = next(
+        (
+            index
+            for index, search in enumerate(searches)
+            if any(result["paper_id"] == focus_id for result in search["results"])
+        ),
+        0,
+    )
     return {
         "run_id": run["run_id"],
+        "focus_paper_id": focus_id,
+        "focus_search_index": focus_index,
         "prompt": run["prompt"],
         "searches": searches,
         "papers_shown": len(run["shown_ids"]),
@@ -292,7 +315,7 @@ def main() -> int:
     # Tie the opening request to the paper the demo later hands the reader, so the
     # two scenes are about the same subject.
     player = pick_player_target(sorted(targets.values(), key=lambda t: t["paper_id"]))
-    opening = pick_opening(runs, topic=topic_stem(player["prompt_id"]))
+    opening = pick_opening(runs, player["prompt_id"], player["paper_id"])
 
     story = {
         "generated_from": {
@@ -351,7 +374,7 @@ def main() -> int:
             "mean_terms": queries.get("mean_query_terms"),
             "most_requested": (queries.get("most_requested_terms") or [])[:12],
         },
-        "opening": opening_scene(opening, corpus),
+        "opening": opening_scene(opening, corpus, player["paper_id"]),
         "strategies": strategies,
         "targets": sorted(targets.values(), key=lambda t: t["paper_id"]),
         "open_question": (
