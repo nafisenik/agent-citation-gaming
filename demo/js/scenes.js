@@ -520,8 +520,8 @@ export const scenes = [
   </p>
   <p class="small">
     The third row is not an author move. <b>Invented paper</b> is a record written to fit
-    the queries with no study behind it, included as a reference point: it marks what
-    wording alone can reach when there is nothing underneath it.
+    the queries with no study behind it. Read its 0% with care: see the note under the
+    chart.
   </p>
   <p><strong>1. Retrieved</strong> &mdash; did the paper come back in the results at all?</p>
   <div class="bars">${bars('retrieval_rate')}</div>
@@ -534,6 +534,25 @@ export const scenes = [
     rewrite that keeps every claim tied to the real abstract is retrieved and ranked less
     often than either, and cited more than both together.
   </p>
+  <div class="callout">
+    <h3>The invented paper was labelled, so its 0% proves less than it looks</h3>
+    <p style="margin:0 0 10px">
+      The injected records were never given a forged venue. They carried
+      &ldquo;preprint, review status unknown&rdquo; where a real paper shows
+      &ldquo;ACL 2025 (main)&rdquo;, and an id beginning <code>exp:</code> rather than
+      <code>acl:</code>. The agent could separate them from published work without
+      reading a word of them, and across all 72 runs every one of the 949 citations it
+      made went to an <code>acl:</code> id.
+    </p>
+    <p style="margin:0 0 10px">
+      So this row does not show that the agent detects invented research. It shows that
+      it prefers records labelled as peer reviewed. Someone who got a fabricated paper
+      into a real venue would not carry either marker. Not forging the venue was a
+      deliberate choice about what this study was willing to do, and the weaker result
+      is the cost of it.
+    </p>
+  </div>
+
   <div class="callout">
     <h3>Why measuring one stage is not enough</h3>
     <p style="margin:0">
@@ -588,9 +607,10 @@ export const scenes = [
     ${actorCard('author', { mood: 'neutral', look: 'scheme', you: true, role: 'writes what reads as relevant' })}
   </div>
   <p>
-    The strategy that worked was not keyword stuffing, and not a fabricated
-    paper &mdash; both of those failed. What worked was describing the same work in the words
-    people were searching for. That is hard to separate from simply writing a clearer title.
+    The edit that worked was not keyword stuffing. It was describing the same work in the
+    words people were searching for, which is hard to separate from simply writing a
+    clearer title. The invented paper failed too, but it was labelled as unreviewed, so
+    that tells us less than it appears to.
   </p>
   <div class="footnote">
     From ${num(data.generated_from.runs_read)} runs across
