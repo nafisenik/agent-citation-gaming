@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# macOS
+.DS_Store
+
+# Downloaded corpus and run output live outside the repo by default
+# (see src/acg/paths.py and the ACG_DATA_DIR environment variable).
+# These names are listed in case anyone points ACG_DATA_DIR at the checkout.
+/data/
+/runs/
+*.jsonl.gz
+anthology+abstracts.bib.gz
+
+# Credentials. API keys are read from the environment, never from a file in the repo.
+.env
+.env.*
