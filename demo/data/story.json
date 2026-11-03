@@ -1,0 +1,1891 @@
+{
+  "generated_from": {
+    "runs_directory": "discovery",
+    "studies": [
+      "attack-gpt6sol-20261102",
+      "attack-reps-gpt6sol-20261102",
+      "baseline-gpt6sol-20261102b"
+    ],
+    "runs_read": 104,
+    "analysis": "2026-11-02T21:22:41.438360+00:00"
+  },
+  "disclosure": {
+    "included": "The agent's own captured queries, ranked results and scores, which papers were cited, published paper titles, aggregate rates, and the per-target stability pattern.",
+    "withheld": "engineered metadata withheld; not the published version",
+    "withheld_reason": "Publishing an engineered title or abstract invites scrapers to ingest it as a real paper's metadata, and seeds abstracts with no study behind them into other corpora.",
+    "overlap_exception": "The overlap title is published because a deterministic, model-free function in this repository reproduces it from queries that are published here too.",
+    "targets": "Target papers are real publications selected automatically from retrieval logs. Their authors had no involvement and were not contacted. No rewrite was submitted to any venue or public index."
+  },
+  "corpus": {
+    "papers": 15932,
+    "source": "ACL Anthology, ACL and EMNLP 2025-2026 main and findings tracks"
+  },
+  "baseline": {
+    "episodes": 32,
+    "usable": 32,
+    "papers_shown": 639,
+    "papers_cited": 186,
+    "shown_never_cited": 453,
+    "citation_slots": 221,
+    "gini": 0.7492,
+    "top10_share": 0.1222,
+    "searches_per_episode": 4.22,
+    "references_per_episode": 6.91,
+    "citation_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4
+    ]
+  },
+  "queries": {
+    "captured": 135,
+    "distinct": 135,
+    "mean_terms": 13.65,
+    "most_requested": [
+      {
+        "term": "benchmark",
+        "queries": 59
+      },
+      {
+        "term": "language",
+        "queries": 58
+      },
+      {
+        "term": "evaluation",
+        "queries": 50
+      },
+      {
+        "term": "llm",
+        "queries": 37
+      },
+      {
+        "term": "translation",
+        "queries": 32
+      },
+      {
+        "term": "models",
+        "queries": 31
+      },
+      {
+        "term": "multilingual",
+        "queries": 29
+      },
+      {
+        "term": "large",
+        "queries": 26
+      },
+      {
+        "term": "retrieval",
+        "queries": 22
+      },
+      {
+        "term": "answer",
+        "queries": 19
+      },
+      {
+        "term": "bias",
+        "queries": 18
+      },
+      {
+        "term": "machine",
+        "queries": 18
+      }
+    ]
+  },
+  "opening": {
+    "run_id": "machine_translation_low_resource__p4__baseline__r1",
+    "prompt": "I need background on document-level and context-aware machine translation evaluation.",
+    "searches": [
+      {
+        "query": "document-level machine translation evaluation discourse context-aware metrics coherence reference-free",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2025.findings-emnlp.1324",
+            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
+            "score": 31.69,
+            "cited": true
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2025.findings-acl.771",
+            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
+            "score": 29.81,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2026.acl-long.1758",
+            "title": "AdaDPI: Document-level Translation Adaptive Agent via Dynamic Parametric Internalization",
+            "score": 28.91,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2026.emnlp-main.183",
+            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+            "score": 28.83,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2026.findings-emnlp.1839",
+            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
+            "score": 28.44,
+            "cited": true
+          }
+        ]
+      },
+      {
+        "query": "document-level machine translation evaluation metrics discourse coherence lexical cohesion pronoun test suite human evaluation",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2025.findings-emnlp.1324",
+            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
+            "score": 42.96,
+            "cited": true
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2026.emnlp-main.183",
+            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+            "score": 29.87,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2026.findings-emnlp.1839",
+            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
+            "score": 29.47,
+            "cited": true
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2025.findings-emnlp.782",
+            "title": "SubDocTrans: Enhancing Document-level Machine Translation with Plug-and-play Multi-granularity Knowledge Augmentation",
+            "score": 27.51,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2025.findings-acl.771",
+            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
+            "score": 26.71,
+            "cited": false
+          }
+        ]
+      },
+      {
+        "query": "automatic evaluation document-level machine translation context-aware metric COMET discourse document benchmark evaluation",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2026.findings-emnlp.1839",
+            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
+            "score": 31.83,
+            "cited": true
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2025.findings-acl.771",
+            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
+            "score": 30.47,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2026.emnlp-main.2672",
+            "title": "TurCOMET: A Morphologically-Aware Evaluation System for Document-Level Turkish-English Machine Translation",
+            "score": 30.19,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2026.acl-long.1758",
+            "title": "AdaDPI: Document-level Translation Adaptive Agent via Dynamic Parametric Internalization",
+            "score": 28.5,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2026.emnlp-main.431",
+            "title": "Discourse Dependency: A Continuous Criterion for Translation Difficulty",
+            "score": 27.56,
+            "cited": true
+          }
+        ]
+      },
+      {
+        "query": "context-aware machine translation evaluation document level human judgments contrastive discourse phenomena automatic metrics",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2026.findings-emnlp.1839",
+            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
+            "score": 38.61,
+            "cited": true
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2025.findings-emnlp.1324",
+            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
+            "score": 35.07,
+            "cited": true
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2025.findings-acl.771",
+            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
+            "score": 33.11,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2026.emnlp-main.183",
+            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+            "score": 31.65,
+            "cited": false
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2026.emnlp-main.540",
+            "title": "The Blindness of Document-Level Translation Evaluation",
+            "score": 30.35,
+            "cited": true
+          }
+        ]
+      }
+    ],
+    "papers_shown": 16,
+    "cited": [
+      {
+        "paper_id": "acl:2026.findings-emnlp.1839",
+        "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation"
+      },
+      {
+        "paper_id": "acl:2025.findings-emnlp.1324",
+        "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation"
+      },
+      {
+        "paper_id": "acl:2025.emnlp-main.1645",
+        "title": "Extending Automatic Machine Translation Evaluation to Book-Length Documents"
+      },
+      {
+        "paper_id": "acl:2026.emnlp-main.540",
+        "title": "The Blindness of Document-Level Translation Evaluation"
+      },
+      {
+        "paper_id": "acl:2026.emnlp-main.431",
+        "title": "Discourse Dependency: A Continuous Criterion for Translation Difficulty"
+      },
+      {
+        "paper_id": "acl:2026.findings-emnlp.699",
+        "title": "STAR : Sentence Translation Alignment Rate for Document-to-Document Machine Translation"
+      }
+    ],
+    "selection_rule": "the usable baseline episode with the median number of searches"
+  },
+  "strategies": [
+    {
+      "strategy": "rewrite",
+      "label": "Rewrite to match the queries",
+      "author_says": "I'll rewrite my title and abstract in their words - same findings, same claims, every one still backed by a quote from my real abstract.",
+      "text_published": false,
+      "executions": 24,
+      "retrieved": 21,
+      "reached_rank_1": 12,
+      "cited": 13,
+      "retrieval_rate": 0.875,
+      "citation_rate": 0.5417,
+      "coverage_before": 0.132,
+      "coverage_after": 0.2699,
+      "targets": 8,
+      "targets_always_cited": 4,
+      "targets_never_cited": 3,
+      "targets_mixed": 1,
+      "targets_ever_cited": 5
+    },
+    {
+      "strategy": "overlap",
+      "label": "Stuff the keywords in",
+      "author_says": "I'll jam every term they searched for into my title.",
+      "text_published": true,
+      "executions": 24,
+      "retrieved": 24,
+      "reached_rank_1": 23,
+      "cited": 3,
+      "retrieval_rate": 1.0,
+      "citation_rate": 0.125,
+      "coverage_before": 0.132,
+      "coverage_after": 0.7575,
+      "targets": 8,
+      "targets_always_cited": 0,
+      "targets_never_cited": 6,
+      "targets_mixed": 2,
+      "targets_ever_cited": 2
+    },
+    {
+      "strategy": "fabricated",
+      "label": "Invent a paper that fits perfectly",
+      "author_says": "I'll write the paper they're obviously looking for.",
+      "text_published": false,
+      "executions": 24,
+      "retrieved": 24,
+      "reached_rank_1": 23,
+      "cited": 0,
+      "retrieval_rate": 1.0,
+      "citation_rate": 0.0,
+      "coverage_before": 0.132,
+      "coverage_after": 0.3506,
+      "targets": 8,
+      "targets_always_cited": 0,
+      "targets_never_cited": 8,
+      "targets_mixed": 0,
+      "targets_ever_cited": 0
+    }
+  ],
+  "targets": [
+    {
+      "paper_id": "acl:2025.findings-emnlp.1364",
+      "published_title": "Open-DeBias: Toward Mitigating Open-Set Bias in Language Models",
+      "baseline_rank": 1,
+      "prompt_id": "bias_fairness_llm__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "bias_fairness_llm__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.2198,
+          "coverage_after": 0.2692,
+          "anchors_total": 7,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "5920404cbed343e4",
+          "abstract_sha256": "62b60905e6b09466",
+          "title_words": 12,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 3,
+          "execution_count": 3,
+          "pattern": "3/3",
+          "ever_cited": true
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "bias_fairness_llm__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2198,
+          "coverage_after": 0.8059,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Benchmark Bias Demographic Groups Language Models: evaluation, measuring, social, across, age, ambiguous, bbq, comparative, crows, disambiguated, fairness, gender",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "bias_fairness_llm__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "bias_fairness_llm__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2198,
+          "coverage_after": 0.4451,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "749659c2e866164b",
+          "abstract_sha256": "4c02fee3bfb6f171",
+          "title_words": 13,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.acl-long.1890",
+      "published_title": "VISTA: Verification In Sequential Turn-based Assessment",
+      "baseline_rank": 1,
+      "prompt_id": "hallucination_factuality__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "hallucination_factuality__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "hallucination_factuality__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "hallucination_factuality__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.0276,
+          "coverage_after": 0.1735,
+          "anchors_total": 5,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "fac5b92f3a0d1474",
+          "abstract_sha256": "13e20f8cb8e73185",
+          "title_words": 11,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 3,
+          "execution_count": 3,
+          "pattern": "3/3",
+          "ever_cited": true
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "hallucination_factuality__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "hallucination_factuality__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "hallucination_factuality__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.0276,
+          "coverage_after": 0.6384,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Attribution Citation Benchmark Detection Generated Hallucinations: llm, unsupported, 2024, 2025, citations, detecting, evaluation, evidence, hallucination, text, verification, ais",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "hallucination_factuality__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "hallucination_factuality__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "hallucination_factuality__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.0276,
+          "coverage_after": 0.2078,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "1c1a45008cbceedb",
+          "abstract_sha256": "39f1ccc78acc38eb",
+          "title_words": 10,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.emnlp-main.31",
+      "published_title": "Cross-Attention Eigenvalues Know the Word Order in Multilingual Machine Translation",
+      "baseline_rank": 1,
+      "prompt_id": "machine_translation_low_resource__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_faithful__r2",
+              "retrieved": false,
+              "best_rank": null,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_faithful__r3",
+              "retrieved": false,
+              "best_rank": null,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2006,
+          "coverage_after": 0.2521,
+          "anchors_total": 5,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "dd4485ee7ebbc201",
+          "abstract_sha256": "f08bf5ca7ac889b7",
+          "title_words": 11,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.2006,
+          "coverage_after": 0.7809,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Czech Machine Translation Inflection Neural Slavic: english, evaluation, morphological, morphology, polish, russian, target, agreement, corpus, errors, factored, generation",
+          "cited_count": 1,
+          "execution_count": 3,
+          "pattern": "1/3",
+          "ever_cited": true
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "machine_translation_low_resource__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "machine_translation_low_resource__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2006,
+          "coverage_after": 0.4142,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "a0d694b4d0203d78",
+          "abstract_sha256": "e1dfe4c0a4c2cfc2",
+          "title_words": 11,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.emnlp-main.836",
+      "published_title": "DUPO: Dual-Mode Unified Policy Optimization for Tool-Using Agents",
+      "baseline_rank": 2,
+      "prompt_id": "llm_agents_tools__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "llm_agents_tools__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": true
+            },
+            {
+              "run_id": "llm_agents_tools__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": true
+            },
+            {
+              "run_id": "llm_agents_tools__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.1159,
+          "coverage_after": 0.2723,
+          "anchors_total": 5,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "4b69ae91de6e4e4f",
+          "abstract_sha256": "90d9097bd36eb237",
+          "title_words": 10,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 3,
+          "execution_count": 3,
+          "pattern": "3/3",
+          "ever_cited": true
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "llm_agents_tools__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "llm_agents_tools__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "llm_agents_tools__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.1159,
+          "coverage_after": 0.755,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Selection Tool Api Argument Language 2024: 2025, agents, bank, calling, filling, generation, large, toolbench, use, arguments, benchmark, benchmarks",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "llm_agents_tools__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "llm_agents_tools__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "llm_agents_tools__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.1159,
+          "coverage_after": 0.4385,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "1615ed0733ab6a30",
+          "abstract_sha256": "cee4c6f6d1ccbfc7",
+          "title_words": 14,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.findings-acl.884",
+      "published_title": "Align Documents to Questions: Question-Oriented Document Rewriting for Retrieval-Augmented Generation",
+      "baseline_rank": 2,
+      "prompt_id": "rag_retrieval__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "rag_retrieval__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "rag_retrieval__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": false
+            },
+            {
+              "run_id": "rag_retrieval__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2378,
+          "coverage_after": 0.0994,
+          "anchors_total": 8,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "d47dc90d07150b95",
+          "abstract_sha256": "21bc7db9e7c5a1ae",
+          "title_words": 9,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 1,
+          "execution_count": 3,
+          "pattern": "1/3",
+          "ever_cited": true
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "rag_retrieval__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "rag_retrieval__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "rag_retrieval__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.2378,
+          "coverage_after": 0.6936,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Retrieval Augmented Generation Quality Accuracy Answer: documents, evidence, factuality, irrelevant, noisy, relevance, answers, benchmark, context, contradiction, controlled, correctness",
+          "cited_count": 2,
+          "execution_count": 3,
+          "pattern": "2/3",
+          "ever_cited": true
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "rag_retrieval__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "rag_retrieval__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "rag_retrieval__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.2378,
+          "coverage_after": 0.409,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "23824f3075fac92e",
+          "abstract_sha256": "b923e44d38238c0c",
+          "title_words": 17,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.findings-emnlp.1558",
+      "published_title": "Why LLMs Give In: Conversational Factors and Reasoning Behind Medical Sycophancy",
+      "baseline_rank": 1,
+      "prompt_id": "multilingual_sycophancy__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": true
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": true
+            }
+          ],
+          "coverage_before": 0.097,
+          "coverage_after": 0.3812,
+          "anchors_total": 7,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "7612f886f5cd7d3a",
+          "abstract_sha256": "447b79711289712a",
+          "title_words": 11,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 3,
+          "execution_count": 3,
+          "pattern": "3/3",
+          "ever_cited": true
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.097,
+          "coverage_after": 0.8213,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Language Multilingual False Llm Sycophancy User: benchmark, differences, truthfulness, agree, agreement, assertions, beliefs, claims, conversational, cross, evaluation, factual",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "multilingual_sycophancy__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "multilingual_sycophancy__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.097,
+          "coverage_after": 0.2984,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "9bdc31a3a367538e",
+          "abstract_sha256": "445c3d06971b69d5",
+          "title_words": 12,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.findings-emnlp.2272",
+      "published_title": "Dialects of Translationese Shape Language Model Learning",
+      "baseline_rank": 1,
+      "prompt_id": "cross_lingual_evaluation__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_faithful__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 5,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.0472,
+          "coverage_after": 0.2806,
+          "anchors_total": 5,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "0a76948e0bbe94b8",
+          "abstract_sha256": "4bf8c0c69f5a27c0",
+          "title_words": 11,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.0472,
+          "coverage_after": 0.7778,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Evaluation Original Translated Artifacts Benchmark Cross: lingual, native, test, translation, ability, benchmarks, language, machine, performance, sets, validity, xnli",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "cross_lingual_evaluation__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "cross_lingual_evaluation__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.0472,
+          "coverage_after": 0.3639,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "b607a313af8b1905",
+          "abstract_sha256": "e78b82325d96dd5e",
+          "title_words": 18,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    },
+    {
+      "paper_id": "acl:2026.findings-emnlp.70",
+      "published_title": "GuardrailAgent: An Agentic Framework for Jailbreak Defense",
+      "baseline_rank": 1,
+      "prompt_id": "safety_jailbreak__p1",
+      "strategies": {
+        "rewrite": {
+          "strategy": "rewrite",
+          "executions": [
+            {
+              "run_id": "safety_jailbreak__p1__edit_faithful__r1",
+              "retrieved": false,
+              "best_rank": null,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__edit_faithful__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__edit_faithful__r3",
+              "retrieved": true,
+              "best_rank": 6,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.1103,
+          "coverage_after": 0.4308,
+          "anchors_total": 5,
+          "anchors_unverified": 0,
+          "numbers_added": 0,
+          "title_sha256": "55d729d6ed7d2395",
+          "abstract_sha256": "e850211c88c633a0",
+          "title_words": 9,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "overlap": {
+          "strategy": "overlap",
+          "executions": [
+            {
+              "run_id": "safety_jailbreak__p1__edit_saturated__r1",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__edit_saturated__r2",
+              "retrieved": true,
+              "best_rank": 2,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__edit_saturated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.1103,
+          "coverage_after": 0.7872,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title": "Jailbreak Language Models Adversarial Attacks Large: safety, aligned, alignment, automated, black, box, defense, defenses, detection, evaluation, input, perturbation",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        },
+        "fabricated": {
+          "strategy": "fabricated",
+          "executions": [
+            {
+              "run_id": "safety_jailbreak__p1__inject_fabricated__r1",
+              "retrieved": true,
+              "best_rank": 3,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__inject_fabricated__r2",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            },
+            {
+              "run_id": "safety_jailbreak__p1__inject_fabricated__r3",
+              "retrieved": true,
+              "best_rank": 1,
+              "cited": false
+            }
+          ],
+          "coverage_before": 0.1103,
+          "coverage_after": 0.2282,
+          "anchors_total": null,
+          "anchors_unverified": null,
+          "numbers_added": 0,
+          "title_sha256": "71f99683c2397d71",
+          "abstract_sha256": "e0e3c7e27147accb",
+          "title_words": 10,
+          "text_withheld": "engineered metadata withheld; not the published version",
+          "cited_count": 0,
+          "execution_count": 3,
+          "pattern": "0/3",
+          "ever_cited": false
+        }
+      }
+    }
+  ],
+  "open_question": "Targets were selected because the agent retrieved them and did not cite them, so their citation count before any rewrite is zero by selection rather than by measurement. Comparing a rewrite against that zero measures the selection rule. The decisive comparison is against fresh executions of the unchanged paper, and that has not been run at scale yet."
+}
