@@ -69,10 +69,15 @@ export const scenes = [
     ${actorCard('author', { look: 'scheme', you: true })}
   </div>
   <p>
-    To set this up, the agent is given a database instead of the open web:
-    ${num(data.corpus.papers)} ACL and EMNLP papers. It searches the way it would anywhere
-    else, so every query it writes for a given request can be recorded here. Whoever runs
-    a real agent can read those same queries; the difference is that we also keep them.
+    The agent is given a fixed database rather than the open web:
+    ${num(data.corpus.papers)} ACL and EMNLP papers. That is what makes the measurement
+    possible. For every paper we can tell whether it was found and whether it ended up
+    cited, and we can replace one paper&rsquo;s title and abstract with an edited version
+    and run the same request again. Neither of those works against the open web.
+  </p>
+  <p class="small">
+    The queries need no setup of their own. They appear in the conversation as the agent
+    makes them.
   </p>
 </div>`;
     },
