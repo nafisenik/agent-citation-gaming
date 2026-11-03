@@ -69,9 +69,10 @@ export const scenes = [
     ${actorCard('author', { look: 'scheme', you: true })}
   </div>
   <p>
-    The index holds ${num(data.corpus.papers)} ACL and EMNLP papers. The agent has no web
-    access, so the only way it can find anything is to ask the index &mdash; which means
-    every query it writes is visible.
+    To set this up, the agent is given a database instead of the open web:
+    ${num(data.corpus.papers)} ACL and EMNLP papers. It searches the way it would anywhere
+    else, so every query it writes for a given request can be recorded here. Whoever runs
+    a real agent can read those same queries; the difference is that we also keep them.
   </p>
 </div>`;
     },
