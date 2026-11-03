@@ -266,7 +266,6 @@ export const scenes = [
     needsChoice: true,
     autoChoice: 'rewrite',
     render(data, ctx) {
-      const target = playerTarget(data);
       const card = (name, label, how, cls = '') => {
         const taken = ctx.choice === name;
         // Deliberately never disabled: the reader should be able to come back and try a
@@ -305,12 +304,6 @@ export const scenes = [
   </div>
   <p class="small" style="margin:14px 0 6px">Or edit the wording, two ways:</p>
   <div class="choices">${edits}</div>
-  <p class="small">
-    Either edit replays what happened when it was run against
-    <code>${escape(target.paper_id)}</code> &mdash; three independent executions, same
-    request, same index. Leaving it alone has nothing to replay, because that run was
-    never done.
-  </p>
 </div>`;
     },
     after(root, data, ctx, player) {
@@ -318,7 +311,13 @@ export const scenes = [
         button.addEventListener('click', () => {
           ctx.choice = button.dataset.choice;
           player.rerender();
-          player.enableNext();
+          // Choosing is the action this scene asks for, so it advances. Leaving the
+          // reader to then hunt for Next -- which sits below the fold once the scene is
+          // this tall -- reads as the page having ignored the click.
+          clearTimeout(ctx.advanceTimer);
+          if (!player.playing) {
+            ctx.advanceTimer = setTimeout(() => player.next(), 300);
+          }
         });
       });
     },
