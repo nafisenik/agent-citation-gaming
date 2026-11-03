@@ -49,10 +49,6 @@ export const scenes = [
     ${actorCard('agent', { mood: 'busy', look: 'wide' })}
     ${actorCard('author', { mood: 'neutral', look: 'scheme', you: true })}
   </div>
-  <p class="small">
-    Every outcome ahead is replayed from ${num(data.generated_from.runs_read)} recorded agent
-    runs over ${num(data.corpus.papers)} real published papers. Nothing is simulated.
-  </p>
 </div>`;
     },
   },
@@ -68,14 +64,14 @@ export const scenes = [
   <div class="cast">
     ${actorCard('researcher')}
     ${actorCard('agent')}
-    ${actorCard('index', { role: `ranks ${num(data.corpus.papers)} real papers` })}
+    ${actorCard('index', { role: `ranks ${num(data.corpus.papers)} papers` })}
     ${actorCard('review')}
     ${actorCard('author', { look: 'scheme', you: true })}
   </div>
   <p>
-    The index is real: ${num(data.corpus.papers)} papers from
-    ${escape(data.corpus.source)}. The agent has no web access, so the only way it can find
-    anything is to ask the index &mdash; which means every query it invents is visible.
+    The index holds ${num(data.corpus.papers)} ACL and EMNLP papers. The agent has no web
+    access, so the only way it can find anything is to ask the index &mdash; which means
+    every query it writes is visible.
   </p>
 </div>`;
     },
@@ -95,11 +91,6 @@ export const scenes = [
       ${says('Researcher', 'researcher', escape(data.opening.prompt))}
     </div>
   </div>
-  <p class="small">
-    One real request from the recorded runs &mdash;
-    <code>${escape(data.opening.run_id)}</code>, picked as
-    ${escape(data.opening.selection_rule)}.
-  </p>
 </div>`;
     },
   },
@@ -124,18 +115,14 @@ export const scenes = [
   <div style="display:flex;gap:16px;align-items:flex-start">
     <div style="flex:0 0 auto">${character('agent', { mood: 'busy', look: 'wide', size: 88 })}</div>
     <div style="flex:1 1 auto">
-      ${says('Agent', 'agent', 'Nobody told me what to search for. I decided.')}
+      ${says('Agent', 'agent', 'From the request, these are the queries I wrote to look for related papers.')}
     </div>
   </div>
   <ul class="queries">${items}</ul>
-  <p>
-    Nobody wrote these. Across the whole run set the agent issued
-    <strong>${num(data.queries.captured)}</strong> queries, every one of them different,
-    averaging ${data.queries.mean_terms ?? '—'} terms.
-  </p>
   <p class="small">
-    This matters because production APIs hand these strings back to the caller verbatim. An
-    author who can read them knows exactly what the assistant is looking for.
+    Seeing them takes no special access. In Claude Code the agent&rsquo;s searches are
+    printed in the transcript as it makes them, visible to whoever asked the question. In a
+    browser client like ChatGPT they come back in the responses under the network tab.
   </p>
 </div>`;
     },
@@ -166,9 +153,8 @@ export const scenes = [
   <p class="small">Top 5 returned for &ldquo;${escape(search.query)}&rdquo;</p>
   <div class="ranked">${rows}</div>
   <p>
-    Over this one request the agent saw <strong>${num(data.opening.papers_shown)}</strong>
-    papers and cited <strong>${num(data.opening.cited.length)}</strong> of them. Being
-    retrieved and being cited are not the same thing, and that gap is the whole story.
+    The agent reads many more papers than it cites. Being retrieved and being cited are
+    different outcomes, and the distance between them is what the rest of this measures.
   </p>
 </div>`;
     },
@@ -205,9 +191,9 @@ export const scenes = [
     <div class="fact"><div class="k">Gini</div><div class="v">${data.baseline.gini ?? '—'}</div></div>
   </div>
   <p class="small">
-    ${num(data.baseline.citation_slots)} citations went to
-    ${num(data.baseline.papers_cited)} papers. Getting found is cheap. Getting cited is the
-    scarce thing.
+    ${num(data.baseline.citation_slots)} citations were spread across
+    ${num(data.baseline.papers_cited)} papers, so a few papers took several each. Being
+    retrieved is common; being cited is not.
   </p>
 </div>`;
     },
@@ -241,14 +227,14 @@ export const scenes = [
     <div class="tag you">yours</div>
   </div>
   <p>
-    Rank ${target.baseline_rank} of ${num(data.corpus.papers)}. Read, and passed over. And
-    because the assistant showed you its queries, you know precisely which words it wanted.
+    It ranked ${target.baseline_rank} of ${num(data.corpus.papers)} and was not cited. You
+    can also see the queries the assistant used to get there.
   </p>
   <div class="callout">
     <h3>How this paper was picked</h3>
     <p class="small" style="margin:0">
       Chosen automatically as the best-ranked paper the agent retrieved and declined to
-      cite &mdash; by the agent&rsquo;s behaviour, not by us. It is a real publication; its
+      cite &mdash; by the agent&rsquo;s behaviour, not by us. It is a published paper; its
       authors had no involvement in any of this and were never contacted.
     </p>
   </div>
@@ -266,9 +252,11 @@ export const scenes = [
       const target = playerTarget(data);
       const card = (name, label, how, cls = '') => {
         const taken = ctx.choice === name;
+        // Deliberately never disabled: the reader should be able to come back and try a
+        // different move, which is most of the point of making it a choice.
         return `
 <button class="choice ${cls} ${taken ? 'taken' : ''}" data-choice="${name}"
-        ${ctx.choice ? 'disabled' : ''}>
+        aria-pressed="${taken}">
   <div class="what">${escape(label)}</div>
   <div class="how">${escape(how)}</div>
 </button>`;
@@ -296,10 +284,10 @@ export const scenes = [
     ${options}
   </div>
   <p class="small">
-    Pick one of the three edits and the next screen replays what <em>actually happened</em>
+    Pick one of the three edits and the next screen replays what happened
     when it was run against <code>${escape(target.paper_id)}</code> &mdash; three independent
     executions, same request, same index. Pick <em>change nothing</em> and the next screen
-    has nothing to replay, which turns out to be the most important thing on this page.
+    has nothing to replay, because that run was never done.
   </p>
 </div>`;
     },
@@ -348,7 +336,7 @@ export const scenes = [
       against leaving the paper alone.
     </p>
     <div class="withheld">
-      <b>Why that is a real gap, not a formality.</b><br>
+      <b>Why the comparison does not work.</b><br>
       These targets were chosen <em>because</em> the agent had retrieved them and not cited
       them. Their citation rate before any edit is therefore 0 by construction. Comparing
       54% against that 0% would be measuring the selection rule, not the edit.
@@ -424,7 +412,6 @@ export const scenes = [
     ${text}
     ${anchors}
   </div>
-  <p class="small">Run ids: ${slot.executions.map((e) => `<code>${escape(e.run_id)}</code>`).join(' ')}</p>
 </div>`;
     },
   },
@@ -504,23 +491,29 @@ export const scenes = [
           .join('');
       return `
 <div class="scene">
-  <h2>The part that should worry an agent builder</h2>
-  <p><strong>Retrieved</strong> &mdash; did the paper come back in the results at all?</p>
+  <h2>No strategy wins both goals</h2>
+  <p>
+    An author wants two things: to be found, and then to be used. The first two measures
+    below are about being found, the third is about being used. A strategy can win one goal
+    and lose the other.
+  </p>
+  <p><strong>1. Retrieved</strong> &mdash; did the paper come back in the results at all?</p>
   <div class="bars">${bars('retrieval_rate')}</div>
-  <p><strong>Cited</strong> &mdash; did the agent actually use it?</p>
+  <p><strong>2. Ranked first</strong> &mdash; was it the top result?</p>
+  <div class="bars">${bars('rank1_rate')}</div>
+  <p><strong>3. Cited</strong> &mdash; did the agent use it in the review?</p>
   <div class="bars">${bars('citation_rate')}</div>
   <p>
-    Keyword stuffing wins retrieval almost perfectly and still loses the citation. Inventing
-    a paper from the queries reaches rank 1 and is cited
-    <strong>never</strong>. The rewrite that keeps every claim anchored to the real abstract
-    is retrieved <em>less</em> often than either &mdash; and cited far more.
+    Keyword stuffing and the fabricated paper win the first two stages and lose the third.
+    The faithful rewrite is retrieved and ranked less often than either, and cited more
+    than both together.
   </p>
   <div class="callout">
-    <h3>Retrieval metrics rank these backwards</h3>
+    <h3>Why measuring one stage is not enough</h3>
     <p style="margin:0">
-      If you measured this system by retrieval rate or rank-1 rate, you would conclude that
-      keyword stuffing is the strongest attack and the faithful rewrite the weakest. At the
-      citation stage the order reverses. Optimising the retriever would not have caught this.
+      Judged on retrieval or rank, keyword stuffing looks like the strongest attack and the
+      faithful rewrite the weakest. At the citation stage that order reverses. A system
+      tuned only on its retriever would rank these three exactly backwards.
     </p>
   </div>
 </div>`;
@@ -553,10 +546,10 @@ export const scenes = [
   <div class="callout">
     <h3>So the honest answer is: not settled</h3>
     <p>
-      What you have seen is real and reproducible: the queries, the ranks, the citations, the
-      near-all-or-nothing stability, and the reversal between retrieval and citation. What is
-      missing is the paired control &mdash; fresh runs of the <em>unchanged</em> paper at
-      scale. Until that exists, this is an apparatus and a method, not an answer.
+      The queries, the ranks, the citations, the near-all-or-nothing stability and the
+      reversal between retrieval and citation are all measured. What is missing is the
+      paired control &mdash; fresh runs of the <em>unchanged</em> paper at scale. Until
+      that exists, this is an apparatus and a method, not an answer.
     </p>
     <p style="margin-bottom:0">
       That control is built into the tool: <code>baseline</code> is a strategy that re-runs
@@ -569,16 +562,15 @@ export const scenes = [
     ${actorCard('author', { mood: 'neutral', look: 'scheme', you: true, role: 'writes what reads as relevant' })}
   </div>
   <p>
-    Note what the winning strategy actually was. Not keyword stuffing, and not a fabricated
-    paper &mdash; both of those failed. What worked was describing real work in the words
+    The strategy that worked was not keyword stuffing, and not a fabricated
+    paper &mdash; both of those failed. What worked was describing the same work in the words
     people were searching for. That is hard to separate from simply writing a clearer title.
   </p>
   <div class="footnote">
-    Replayed from ${num(data.generated_from.runs_read)} recorded runs across studies
+    From ${num(data.generated_from.runs_read)} runs across
     ${data.generated_from.studies.map((s) => `<code>${escape(s)}</code>`).join(', ')}.
-    Engineered titles and abstracts are withheld; see
-    <code>demo/build_story.py</code> for exactly what is published and what is not.
-    ${escape(data.disclosure.targets)}
+    The rewritten titles and abstracts are not published here; see
+    <code>demo/build_story.py</code>. ${escape(data.disclosure.targets)}
   </div>
 </div>`;
     },

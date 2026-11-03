@@ -24,6 +24,7 @@ Running it needs the private run directory, which is not part of this repository
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 WITHHELD = "engineered metadata withheld; not the published version"
@@ -73,11 +74,21 @@ def load_runs(directory: Path) -> list[dict]:
     return runs
 
 
-def pick_opening(runs: list[dict]) -> dict:
+def topic_stem(identifier: str) -> str:
+    """`bias_fairness_llm__p4__baseline__r1` and `bias_fairness_llm__p1` -> topic stem."""
+    return re.sub(r"__p\d+.*$", "", identifier)
+
+
+def pick_opening(runs: list[dict], topic: str | None = None) -> dict:
     """One baseline episode to open with: the clearest story, not the most favourable.
 
     Chosen by a stated rule rather than by eye -- the usable baseline episode with the
     median number of searches, so it is typical rather than cherry-picked.
+
+    Restricted to `topic` when given. The demo hands the reader a specific paper a few
+    scenes later, and an opening request about a different subject makes the two scenes
+    read as unrelated: the researcher asks about translation, then "your paper" is about
+    bias. Same topic throughout, or the story does not hold together.
     """
     baseline = [
         run
@@ -86,8 +97,30 @@ def pick_opening(runs: list[dict]) -> dict:
         and (run.get("recommended_ids") or run.get("inline_ids"))
         and run["tool_calls"]
     ]
+    if topic:
+        matching = [run for run in baseline if topic_stem(run["run_id"]) == topic]
+        if not matching:
+            raise SystemExit(
+                f"no usable baseline episode for topic {topic!r}; the opening scene would "
+                f"contradict the target paper. Available: "
+                f"{sorted({topic_stem(r['run_id']) for r in baseline})}"
+            )
+        baseline = matching
     baseline.sort(key=lambda run: (len(run["tool_calls"]), run["run_id"]))
     return baseline[len(baseline) // 2]
+
+
+def pick_player_target(targets: list[dict]) -> dict:
+    """Mirror of playerTarget() in demo/js/scenes.js: prefer the clean modal pattern."""
+    modal = [
+        target
+        for target in targets
+        if (rewrite := target["strategies"].get("rewrite"))
+        and (overlap := target["strategies"].get("overlap"))
+        and not overlap["ever_cited"]
+        and rewrite["cited_count"] == rewrite["execution_count"]
+    ]
+    return (modal or targets)[0]
 
 
 def opening_scene(run: dict, corpus: dict) -> dict:
@@ -234,6 +267,14 @@ def main() -> int:
                 "reached_rank_1": recorded.get("focus_reached_rank_1"),
                 "cited": recorded.get("focus_cited"),
                 "retrieval_rate": recorded.get("retrieval_success_rate"),
+                # The analysis stores rank-1 as a count while the other two stages are
+                # already rates; derive it so all three bars are on the same scale.
+                "rank1_rate": (
+                    round(recorded["focus_reached_rank_1"] / recorded["episodes"], 4)
+                    if recorded.get("focus_reached_rank_1") is not None
+                    and recorded.get("episodes")
+                    else None
+                ),
                 "citation_rate": recorded.get("injection_success_rate"),
                 "coverage_before": recorded.get("mean_title_coverage_before"),
                 "coverage_after": recorded.get("mean_title_coverage_after"),
@@ -248,7 +289,10 @@ def main() -> int:
 
     baseline = analysis.get("baseline") or {}
     queries = analysis.get("queries") or {}
-    opening = pick_opening(runs)
+    # Tie the opening request to the paper the demo later hands the reader, so the
+    # two scenes are about the same subject.
+    player = pick_player_target(sorted(targets.values(), key=lambda t: t["paper_id"]))
+    opening = pick_opening(runs, topic=topic_stem(player["prompt_id"]))
 
     story = {
         "generated_from": {

@@ -37,7 +37,7 @@ export const CAST = {
   },
   index: {
     name: 'The Index',
-    role: 'ranks 15,932 real papers',
+    role: 'ranks 15,932 papers',
     fill: '#ded6f0',
     accessory:
       // stacked cards
@@ -48,7 +48,7 @@ export const CAST = {
   },
   author: {
     name: 'The Author',
-    role: 'can see every query it issued',
+    role: 'can see what the agent searches for',
     fill: '#f6d5cf',
     accessory:
       // A pencil held up against the cheek. It deliberately overlaps the head rect so it

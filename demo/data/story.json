@@ -729,195 +729,199 @@
     ]
   },
   "opening": {
-    "run_id": "machine_translation_low_resource__p4__baseline__r1",
-    "prompt": "I need background on document-level and context-aware machine translation evaluation.",
+    "run_id": "bias_fairness_llm__p4__baseline__r1",
+    "prompt": "I need background on debiasing and mitigation methods for LLMs, and evidence about whether they actually work.",
     "searches": [
       {
-        "query": "document-level machine translation evaluation discourse context-aware metrics coherence reference-free",
+        "query": "large language model bias mitigation debiasing methods evaluation effectiveness social bias benchmarks",
         "results": [
           {
             "rank": 1,
-            "paper_id": "acl:2025.findings-emnlp.1324",
-            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
-            "score": 31.69,
-            "cited": true
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.findings-acl.771",
-            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
-            "score": 29.81,
+            "paper_id": "acl:2025.emnlp-main.874",
+            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
+            "score": 29.48,
             "cited": false
           },
           {
+            "rank": 2,
+            "paper_id": "acl:2025.findings-acl.145",
+            "title": "Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation",
+            "score": 23.48,
+            "cited": true
+          },
+          {
             "rank": 3,
-            "paper_id": "acl:2026.acl-long.1758",
-            "title": "AdaDPI: Document-level Translation Adaptive Agent via Dynamic Parametric Internalization",
-            "score": 28.91,
+            "paper_id": "acl:2026.emnlp-main.420",
+            "title": "ARCA: Attribution-Regularized Causal Alignment for Task-Aware Bias Mitigation",
+            "score": 23.16,
             "cited": false
           },
           {
             "rank": 4,
-            "paper_id": "acl:2026.emnlp-main.183",
-            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-            "score": 28.83,
+            "paper_id": "acl:2025.findings-emnlp.821",
+            "title": "BiasFilter: An Inference-Time Debiasing Framework for Large Language Models",
+            "score": 22.08,
+            "cited": true
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2026.emnlp-main.2630",
+            "title": "MARD: A Multi-Agent Reinforced Debiasing Framework for Large Language Models",
+            "score": 22.05,
+            "cited": false
+          }
+        ]
+      },
+      {
+        "query": "evaluating effectiveness debiasing large language models methods prompt fine tuning tradeoffs benchmark bias reduction generalization",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2025.emnlp-main.208",
+            "title": "Mitigating Biases in Language Models via Bias Unlearning",
+            "score": 22.79,
+            "cited": true
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2026.findings-acl.1459",
+            "title": "Distilling the Essence, Discarding the Dross: Improving Fairness in Multimodal Large Language Models via Historical Reflection-Guided Prompt Optimization",
+            "score": 22.57,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2025.emnlp-main.874",
+            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
+            "score": 22.0,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2025.findings-acl.589",
+            "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering",
+            "score": 21.73,
+            "cited": true
+          },
+          {
+            "rank": 5,
+            "paper_id": "acl:2026.emnlp-main.2630",
+            "title": "MARD: A Multi-Agent Reinforced Debiasing Framework for Large Language Models",
+            "score": 21.03,
+            "cited": false
+          }
+        ]
+      },
+      {
+        "query": "empirical study do large language model social bias mitigation techniques actually reduce bias evaluation unintended consequences benchmarks",
+        "results": [
+          {
+            "rank": 1,
+            "paper_id": "acl:2025.acl-long.445",
+            "title": "White Men Lead, Black Women Help? Benchmarking and Mitigating Language Agency Social Biases in LLMs",
+            "score": 24.94,
+            "cited": false
+          },
+          {
+            "rank": 2,
+            "paper_id": "acl:2025.emnlp-main.1416",
+            "title": "Social Bias in Multilingual Language Models: A Survey",
+            "score": 24.35,
+            "cited": false
+          },
+          {
+            "rank": 3,
+            "paper_id": "acl:2025.findings-emnlp.1006",
+            "title": "Does Reasoning Introduce Bias? A Study of Social Bias Evaluation and Mitigation in LLM Reasoning",
+            "score": 22.29,
+            "cited": false
+          },
+          {
+            "rank": 4,
+            "paper_id": "acl:2025.acl-long.1038",
+            "title": "The Invisible Hand: Unveiling Provider Bias in Large Language Models for Code Generation",
+            "score": 20.88,
             "cited": false
           },
           {
             "rank": 5,
-            "paper_id": "acl:2026.findings-emnlp.1839",
-            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
-            "score": 28.44,
+            "paper_id": "acl:2025.findings-emnlp.783",
+            "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations",
+            "score": 20.58,
             "cited": true
           }
         ]
       },
       {
-        "query": "document-level machine translation evaluation metrics discourse coherence lexical cohesion pronoun test suite human evaluation",
+        "query": "debiasing large language models mitigation effectiveness bias benchmark prompt instruction counterfactual fine tuning refusal social bias evaluation study",
         "results": [
           {
             "rank": 1,
-            "paper_id": "acl:2025.findings-emnlp.1324",
-            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
-            "score": 42.96,
-            "cited": true
+            "paper_id": "acl:2026.emnlp-main.420",
+            "title": "ARCA: Attribution-Regularized Causal Alignment for Task-Aware Bias Mitigation",
+            "score": 30.49,
+            "cited": false
           },
           {
             "rank": 2,
-            "paper_id": "acl:2026.emnlp-main.183",
-            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+            "paper_id": "acl:2025.findings-acl.589",
+            "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering",
             "score": 29.87,
-            "cited": false
-          },
-          {
-            "rank": 3,
-            "paper_id": "acl:2026.findings-emnlp.1839",
-            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
-            "score": 29.47,
-            "cited": true
-          },
-          {
-            "rank": 4,
-            "paper_id": "acl:2025.findings-emnlp.782",
-            "title": "SubDocTrans: Enhancing Document-level Machine Translation with Plug-and-play Multi-granularity Knowledge Augmentation",
-            "score": 27.51,
-            "cited": false
-          },
-          {
-            "rank": 5,
-            "paper_id": "acl:2025.findings-acl.771",
-            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
-            "score": 26.71,
-            "cited": false
-          }
-        ]
-      },
-      {
-        "query": "automatic evaluation document-level machine translation context-aware metric COMET discourse document benchmark evaluation",
-        "results": [
-          {
-            "rank": 1,
-            "paper_id": "acl:2026.findings-emnlp.1839",
-            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
-            "score": 31.83,
-            "cited": true
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.findings-acl.771",
-            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
-            "score": 30.47,
-            "cited": false
-          },
-          {
-            "rank": 3,
-            "paper_id": "acl:2026.emnlp-main.2672",
-            "title": "TurCOMET: A Morphologically-Aware Evaluation System for Document-Level Turkish-English Machine Translation",
-            "score": 30.19,
-            "cited": false
-          },
-          {
-            "rank": 4,
-            "paper_id": "acl:2026.acl-long.1758",
-            "title": "AdaDPI: Document-level Translation Adaptive Agent via Dynamic Parametric Internalization",
-            "score": 28.5,
-            "cited": false
-          },
-          {
-            "rank": 5,
-            "paper_id": "acl:2026.emnlp-main.431",
-            "title": "Discourse Dependency: A Continuous Criterion for Translation Difficulty",
-            "score": 27.56,
-            "cited": true
-          }
-        ]
-      },
-      {
-        "query": "context-aware machine translation evaluation document level human judgments contrastive discourse phenomena automatic metrics",
-        "results": [
-          {
-            "rank": 1,
-            "paper_id": "acl:2026.findings-emnlp.1839",
-            "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation",
-            "score": 38.61,
-            "cited": true
-          },
-          {
-            "rank": 2,
-            "paper_id": "acl:2025.findings-emnlp.1324",
-            "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation",
-            "score": 35.07,
             "cited": true
           },
           {
             "rank": 3,
-            "paper_id": "acl:2025.findings-acl.771",
-            "title": "DoCIA: An Online Document-Level Context Incorporation Agent for Speech Translation",
-            "score": 33.11,
+            "paper_id": "acl:2025.emnlp-main.874",
+            "title": "Bias Mitigation or Cultural Commonsense? Evaluating LLMs with a Japanese Dataset",
+            "score": 29.72,
             "cited": false
           },
           {
             "rank": 4,
-            "paper_id": "acl:2026.emnlp-main.183",
-            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-            "score": 31.65,
-            "cited": false
+            "paper_id": "acl:2025.findings-emnlp.783",
+            "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations",
+            "score": 28.09,
+            "cited": true
           },
           {
             "rank": 5,
-            "paper_id": "acl:2026.emnlp-main.540",
-            "title": "The Blindness of Document-Level Translation Evaluation",
-            "score": 30.35,
+            "paper_id": "acl:2025.findings-emnlp.1364",
+            "title": "Open-DeBias: Toward Mitigating Open-Set Bias in Language Models",
+            "score": 24.75,
             "cited": true
           }
         ]
       }
     ],
-    "papers_shown": 16,
+    "papers_shown": 21,
     "cited": [
       {
-        "paper_id": "acl:2026.findings-emnlp.1839",
-        "title": "Exploring the Impact of Document Context on LLM-based Machine Translation Evaluation"
+        "paper_id": "acl:2025.findings-acl.145",
+        "title": "Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation"
       },
       {
-        "paper_id": "acl:2025.findings-emnlp.1324",
-        "title": "Exploring Context Strategies in LLMs for Discourse-Aware Machine Translation"
+        "paper_id": "acl:2025.emnlp-main.208",
+        "title": "Mitigating Biases in Language Models via Bias Unlearning"
       },
       {
-        "paper_id": "acl:2025.emnlp-main.1645",
-        "title": "Extending Automatic Machine Translation Evaluation to Book-Length Documents"
+        "paper_id": "acl:2025.findings-acl.589",
+        "title": "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering"
       },
       {
-        "paper_id": "acl:2026.emnlp-main.540",
-        "title": "The Blindness of Document-Level Translation Evaluation"
+        "paper_id": "acl:2025.findings-emnlp.821",
+        "title": "BiasFilter: An Inference-Time Debiasing Framework for Large Language Models"
       },
       {
-        "paper_id": "acl:2026.emnlp-main.431",
-        "title": "Discourse Dependency: A Continuous Criterion for Translation Difficulty"
+        "paper_id": "acl:2026.findings-acl.486",
+        "title": "When Debiasing Backfires: Counterintuitive Side Effects of Preprocessing-Based Stereotype Mitigation"
       },
       {
-        "paper_id": "acl:2026.findings-emnlp.699",
-        "title": "STAR : Sentence Translation Alignment Rate for Document-to-Document Machine Translation"
+        "paper_id": "acl:2025.findings-emnlp.783",
+        "title": "Social Bias Evaluation for Large Language Models Requires Prompt Variations"
+      },
+      {
+        "paper_id": "acl:2025.findings-emnlp.1364",
+        "title": "Open-DeBias: Toward Mitigating Open-Set Bias in Language Models"
       }
     ],
     "selection_rule": "the usable baseline episode with the median number of searches"
@@ -933,6 +937,7 @@
       "reached_rank_1": 12,
       "cited": 13,
       "retrieval_rate": 0.875,
+      "rank1_rate": 0.5,
       "citation_rate": 0.5417,
       "coverage_before": 0.132,
       "coverage_after": 0.2699,
@@ -952,6 +957,7 @@
       "reached_rank_1": 23,
       "cited": 3,
       "retrieval_rate": 1.0,
+      "rank1_rate": 0.9583,
       "citation_rate": 0.125,
       "coverage_before": 0.132,
       "coverage_after": 0.7575,
@@ -971,6 +977,7 @@
       "reached_rank_1": 23,
       "cited": 0,
       "retrieval_rate": 1.0,
+      "rank1_rate": 0.9583,
       "citation_rate": 0.0,
       "coverage_before": 0.132,
       "coverage_after": 0.3506,
