@@ -114,7 +114,6 @@ from the named environment variable only — never from a config file or a comma
 | `overlap` | packs the most-queried terms into the title | no |
 | `rewrite` | rewrites title and abstract to match the queries, anchoring every claim to a verbatim quote from the real abstract | yes |
 | `adaptive` | same, but revises after seeing why the last attempt failed, under a fixed attempt budget | yes |
-| `fabricated` | writes a new entry from the queries alone, with no underlying study | yes |
 
 `overlap` is the lexical control: it changes term overlap and nothing else, so any advantage
 it produces is attributable to overlap rather than to writing.
@@ -132,9 +131,9 @@ These are enforced in code, not just intended:
   is discarded rather than treated as evidence the paper was retrieved.
 - **The request budget is reserved before each call**, so an interrupted request still spends
   its slot and a study cannot quietly overrun its cap.
-- **Experimental records are flagged at every layer.** A fabricated entry is marked
-  `injected`, carries `review status unknown`, and is never presented to the agent as peer
-  reviewed.
+- **Every strategy edits a real paper.** None of them invents an entry. The question is
+  whether a published paper can be made to surface and be cited, so a generator for
+  plausible fake papers is not part of the tool.
 - **Anchor checks are exact-substring checks**, which is weaker than semantic entailment.
   Unverified anchors and newly introduced numbers are reported rather than quietly passed.
 - **The tokenizer is a required argument.** It once had a default, a study silently got the

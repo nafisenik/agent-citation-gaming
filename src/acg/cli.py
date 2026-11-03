@@ -187,7 +187,6 @@ def cmd_attack(arguments) -> int:
         target_id=arguments.target,
         repetitions=arguments.repetitions,
         max_attempts=arguments.max_attempts,
-        topic_label=arguments.topic_label or arguments.query[:80],
         results_per_query=arguments.results_per_query,
         max_searches=arguments.max_searches,
         on_event=event,
@@ -279,7 +278,6 @@ def build_parser() -> argparse.ArgumentParser:
     attack.add_argument("--target", help="paper_id to target instead of auto-selecting")
     attack.add_argument("--repetitions", type=int, default=1)
     attack.add_argument("--max-attempts", type=int, default=3, help="adaptive budget")
-    attack.add_argument("--topic-label", help="area name given to the fabricator")
     attack.add_argument("--results-per-query", type=int, default=8)
     attack.add_argument("--max-searches", type=int, default=6)
     attack.add_argument("--out", help="directory to write the report into")

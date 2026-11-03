@@ -33,7 +33,6 @@ WITHHELD = "engineered metadata withheld; not the published version"
 STRATEGY_OF = {
     "edit_saturated": "overlap",
     "edit_faithful": "rewrite",
-    "inject_fabricated": "fabricated",
 }
 
 STRATEGY_COPY = {
@@ -53,14 +52,6 @@ STRATEGY_COPY = {
             "I'll rewrite both in their wording - same findings, same claims, every "
             "one still backed by a quote from my real abstract."
         ),
-        "text_published": False,
-    },
-    # Not an author move: this injects a paper that does not exist, so it is reported
-    # alongside the results as a reference point rather than offered as a choice.
-    "fabricated": {
-        "label": "A paper invented to fit the queries",
-        "short": "invented paper",
-        "author_says": "A record written to match the queries, with no study behind it.",
         "text_published": False,
     },
 }

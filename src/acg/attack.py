@@ -27,7 +27,6 @@ from pathlib import Path
 from .adversary import (
     AttemptFeedback,
     QueryProfile,
-    fabricated_record,
     overlap_variant,
     presentation_metrics,
     rewrite_variant,
@@ -140,7 +139,6 @@ def build_variant(
     endpoint: Endpoint,
     meter: Meter,
     label: str,
-    topic_label: str,
     history: tuple[AttemptFeedback, ...] = (),
 ) -> tuple[Corpus, str, str, str, dict]:
     """Return (variant corpus, focus id, title, abstract, construction record)."""
@@ -182,18 +180,6 @@ def build_variant(
             construction,
         )
 
-    if strategy == "fabricated":
-        record, construction = fabricated_record(
-            endpoint, topic_label, profile, meter, label, record_id="exp:fabricated-1"
-        )
-        return (
-            corpus.variant(injections=(record,)),
-            record.paper_id,
-            record.title,
-            record.abstract,
-            construction,
-        )
-
     raise ValueError(f"unknown strategy {strategy!r}")
 
 
@@ -207,7 +193,6 @@ def run_attack(
     target_id: str | None = None,
     repetitions: int = 1,
     max_attempts: int = 3,
-    topic_label: str = "",
     results_per_query: int = 8,
     max_searches: int = 6,
     max_turns: int = 8,
@@ -280,7 +265,7 @@ def run_attack(
                     built = build_variant(
                         strategy, corpus, target_id, profile, endpoint, meter,
                         label=f"{run_prefix}__{strategy}__a{attempt}:author",
-                        topic_label=topic_label, history=history,
+                        history=history,
                     )
                 except BudgetExceeded as error:
                     result.error = str(error)

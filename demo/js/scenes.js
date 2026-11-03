@@ -495,7 +495,7 @@ export const scenes = [
     id: 'scoreboard',
     autoplayMs: 5600,
     render(data) {
-      const colour = { rewrite: '#3d6fb4', overlap: '#d99a2b', fabricated: '#9a9287' };
+      const colour = { rewrite: '#3d6fb4', overlap: '#d99a2b' };
       const bars = (field) =>
         data.strategies
           .map((strategy) => {
@@ -514,14 +514,9 @@ export const scenes = [
 <div class="scene">
   <h2>No strategy wins both goals</h2>
   <p>
-    An author wants two things: to be found, and then to be used. The first two measures
-    below are about being found, the third is about being used. An edit can win one goal
-    and lose the other.
-  </p>
-  <p class="small">
-    The third row is not an author move. <b>Invented paper</b> is a record written to fit
-    the queries with no study behind it. Read its 0% with care: see the note under the
-    chart.
+    The attack is aimed at both goals: get found, then get used. The first two measures
+    below are about being found, the third is about being used. Both edits are trying to
+    win both &mdash; and neither manages it.
   </p>
   <p><strong>1. Retrieved</strong> &mdash; did the paper come back in the results at all?</p>
   <div class="bars">${bars('retrieval_rate')}</div>
@@ -530,29 +525,10 @@ export const scenes = [
   <p><strong>3. Cited</strong> &mdash; did the agent use it in the review?</p>
   <div class="bars">${bars('citation_rate')}</div>
   <p>
-    The two keyword-matched documents win the first two measures and lose the third. The
-    rewrite that keeps every claim tied to the real abstract is retrieved and ranked less
-    often than either, and cited more than both together.
+    Stuffing the title wins the first two measures and loses the third. The rewrite that
+    keeps every claim tied to the real abstract is retrieved and ranked less often, and
+    cited four times as often.
   </p>
-  <div class="callout">
-    <h3>The invented paper was labelled, so its 0% proves less than it looks</h3>
-    <p style="margin:0 0 10px">
-      The injected records were never given a forged venue. They carried
-      &ldquo;preprint, review status unknown&rdquo; where a real paper shows
-      &ldquo;ACL 2025 (main)&rdquo;, and an id beginning <code>exp:</code> rather than
-      <code>acl:</code>. The agent could separate them from published work without
-      reading a word of them, and across all 72 runs every one of the 949 citations it
-      made went to an <code>acl:</code> id.
-    </p>
-    <p style="margin:0 0 10px">
-      So this row does not show that the agent detects invented research. It shows that
-      it prefers records labelled as peer reviewed. Someone who got a fabricated paper
-      into a real venue would not carry either marker. Not forging the venue was a
-      deliberate choice about what this study was willing to do, and the weaker result
-      is the cost of it.
-    </p>
-  </div>
-
   <div class="callout">
     <h3>Why measuring one stage is not enough</h3>
     <p style="margin:0">
@@ -609,8 +585,7 @@ export const scenes = [
   <p>
     The edit that worked was not keyword stuffing. It was describing the same work in the
     words people were searching for, which is hard to separate from simply writing a
-    clearer title. The invented paper failed too, but it was labelled as unreviewed, so
-    that tells us less than it appears to.
+    clearer title.
   </p>
   <div class="footnote">
     From ${num(data.generated_from.runs_read)} runs across
