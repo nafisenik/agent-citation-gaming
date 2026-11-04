@@ -133,6 +133,37 @@ def pick_player_target(targets: list[dict]) -> dict:
     return (modal or targets)[0]
 
 
+def climb_summary(path: str | None) -> dict | None:
+    """Summarise the deep-rank climb analysis, if it was run.
+
+    This measurement is a different kind of evidence from everything else in the story and
+    is labelled as such. It comes from BM25 and `overlap_variant` alone -- both
+    deterministic and model-free -- so it says where a paper would rank, not whether an
+    agent would cite it. It also covers the title-stuffing edit only, because the faithful
+    rewrite needs a model.
+    """
+    if not path:
+        return None
+    data = json.loads(Path(path).read_text())
+    rows = data["rows"]
+    moved = [r for r in rows if r["rank_after"] is not None]
+    gains = sorted(r["rank_before"] - r["rank_after"] for r in moved)
+    return {
+        "window": data["window"],
+        "tested": len(rows),
+        "entered_window": sum(1 for r in rows if r["entered_window"]),
+        "reached_rank_1": sum(1 for r in rows if r["reached_rank_1"]),
+        "median_gain": gains[len(gains) // 2] if gains else None,
+        "rank_before_min": min(r["rank_before"] for r in rows),
+        "rank_before_max": max(r["rank_before"] for r in rows),
+        "edit": "overlap",
+        "method": (
+            "BM25 ranking with the deterministic title edit. No model call and no agent "
+            "run: this measures rank, not citation."
+        ),
+    }
+
+
 def opening_scene(run: dict, corpus: dict, focus_id: str) -> dict:
     cited = run.get("recommended_ids") or run.get("inline_ids")
     searches = []
@@ -182,6 +213,7 @@ def main() -> int:
     parser.add_argument("--runs", required=True, help="private recorded-runs directory")
     parser.add_argument("--analysis", help="analysis.json with the aggregates")
     parser.add_argument("--corpus", required=True, help="papers.jsonl")
+    parser.add_argument("--climb", help="deep_rank_climb.json from the rank-climb analysis")
     parser.add_argument("--out", default="demo/data/story.json")
     arguments = parser.parse_args()
 
@@ -376,6 +408,7 @@ def main() -> int:
         "opening": opening_scene(opening, corpus, player["paper_id"]),
         "strategies": strategies,
         "targets": sorted(targets.values(), key=lambda t: t["paper_id"]),
+        "climb": climb_summary(arguments.climb),
         "open_question": (
             "Targets were selected because the agent retrieved them and did not cite them, "
             "so their citation count before any rewrite is zero by selection rather than by "

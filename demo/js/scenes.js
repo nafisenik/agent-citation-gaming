@@ -550,6 +550,52 @@ export const scenes = [
   },
 
   // -------------------------------------------------------------- 12. the gap
+  // --------------------------------------------------------------- 12. climb
+  {
+    id: 'climb',
+    autoplayMs: 5200,
+    // Only shown when the analysis has been run and exported.
+    skipIf: (data) => !data.climb,
+    render(data) {
+      const c = data.climb;
+      if (!c) return '<div class="scene"><h2>Not measured</h2></div>';
+      return `
+<div class="scene">
+  <h2>Getting found was never the hard part</h2>
+  <p>
+    Every paper in the experiment above already ranked 1st or 2nd before it was touched,
+    so the retrieval bars had nothing to climb. To see whether a buried paper can get
+    into the window at all, ${c.tested} papers sitting between rank
+    ${num(c.rank_before_min)} and ${num(c.rank_before_max)} were given the same
+    title edit.
+  </p>
+  <div class="facts">
+    <div class="fact"><div class="k">Reached the top ${c.window}</div>
+      <div class="v">${c.entered_window}<small> / ${c.tested}</small></div></div>
+    <div class="fact"><div class="k">Reached rank 1</div>
+      <div class="v">${c.reached_rank_1}<small> / ${c.tested}</small></div></div>
+    <div class="fact"><div class="k">Median gain</div>
+      <div class="v">${num(c.median_gain)}<small> places</small></div></div>
+  </div>
+  <p>
+    A paper at rank ${num(c.rank_before_max)} reaches the top of the list by rewording its
+    title. The first goal is cheap. The second is where the same edit fails: that is the
+    one cited ${pct(
+      (data.strategies.find((x) => x.strategy === 'overlap') || {}).citation_rate
+    )} of the time.
+  </p>
+  <div class="callout">
+    <h3>This row of evidence is weaker than the others</h3>
+    <p style="margin:0">
+      ${escape(c.method)} Everything else here replays an agent deciding what to cite;
+      this is the ranking function alone, and it covers the title edit only, since the
+      rewrite needs a model to produce.
+    </p>
+  </div>
+</div>`;
+    },
+  },
+
   {
     id: 'catch',
     autoplayMs: 6000,

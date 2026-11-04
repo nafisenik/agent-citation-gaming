@@ -7,6 +7,9 @@ const AUTOPLAY_FALLBACK_MS = 4000;
 class Player {
   constructor(data, root, controls, progress) {
     this.data = data;
+    // A scene can opt out when the data it needs was not exported, so the demo degrades
+    // to the scenes it can actually support instead of rendering an empty one.
+    this.scenes = scenes.filter((scene) => !scene.skipIf || !scene.skipIf(data));
     this.root = root;
     this.controls = controls;
     this.progress = progress;
@@ -17,7 +20,7 @@ class Player {
   }
 
   get scene() {
-    return scenes[this.index];
+    return this.scenes[this.index];
   }
 
   rerender() {
@@ -29,14 +32,14 @@ class Player {
   }
 
   go(index) {
-    this.index = Math.max(0, Math.min(scenes.length - 1, index));
+    this.index = Math.max(0, Math.min(this.scenes.length - 1, index));
     this.rerender();
     this.root.scrollIntoView({ block: 'start' });
     if (this.playing) this.queueNext();
   }
 
   next() {
-    if (this.index >= scenes.length - 1) {
+    if (this.index >= this.scenes.length - 1) {
       this.pause();
       return;
     }
@@ -87,7 +90,7 @@ class Player {
   }
 
   renderControls() {
-    const last = this.index >= scenes.length - 1;
+    const last = this.index >= this.scenes.length - 1;
     const blocked = this.blocked();
     const label = this.index === 0 ? 'Begin' : 'Next';
 
@@ -99,8 +102,8 @@ class Player {
 <button class="btn ghost" id="play">${this.playing ? '❙❙ Pause' : '▶ Play all'}</button>
 ${last ? '<button class="btn ghost" id="restart">↺ Start again</button>' : ''}
 <div class="progress" role="progressbar" aria-valuenow="${this.index + 1}"
-     aria-valuemin="1" aria-valuemax="${scenes.length}"
-     aria-label="Scene ${this.index + 1} of ${scenes.length}"></div>`;
+     aria-valuemin="1" aria-valuemax="${this.scenes.length}"
+     aria-label="Scene ${this.index + 1} of ${this.scenes.length}"></div>`;
 
     const click = (id, fn) => {
       const node = this.controls.querySelector(`#${id}`);
@@ -122,7 +125,7 @@ ${last ? '<button class="btn ghost" id="restart">↺ Start again</button>' : ''}
   renderProgress() {
     const bar = this.controls.querySelector('.progress');
     if (!bar) return;
-    bar.innerHTML = scenes
+    bar.innerHTML = this.scenes
       .map((_, index) => {
         const state = index === this.index ? 'on' : index < this.index ? 'done' : '';
         return `<i class="${state}"></i>`;

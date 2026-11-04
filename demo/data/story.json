@@ -1554,5 +1554,16 @@
       }
     }
   ],
+  "climb": {
+    "window": 8,
+    "tested": 80,
+    "entered_window": 80,
+    "reached_rank_1": 77,
+    "median_gain": 206,
+    "rank_before_min": 20,
+    "rank_before_max": 400,
+    "edit": "overlap",
+    "method": "BM25 ranking with the deterministic title edit. No model call and no agent run: this measures rank, not citation."
+  },
   "open_question": "Targets were selected because the agent retrieved them and did not cite them, so their citation count before any rewrite is zero by selection rather than by measurement. Comparing a rewrite against that zero measures the selection rule. The decisive comparison is against fresh executions of the unchanged paper, and that has not been run at scale yet."
 }
